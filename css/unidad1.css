@@ -1,0 +1,477 @@
+/* Reset Básico y Tipografía Global (Poppins) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1a1642;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header & Navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #4a154b;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #4a154b;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  padding: 0.4rem 0.8rem;
+}
+
+/* Estilo Cápsula para el botón activo (UNIDAD 1) */
+.nav-links a.active {
+  background-color: #481a4a;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.4rem 1.2rem;
+}
+
+.nav-links a:hover:not(.active) {
+  opacity: 0.7;
+}
+
+/* Contenedor Principal */
+.container {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  flex: 1;
+}
+
+/* Fecha Superior Derecha */
+.date-header {
+  text-align: right;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1a1642;
+  margin-bottom: 2rem;
+}
+
+/* Títulos Principales */
+.page-title-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.main-title {
+  color: #1a1642;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+.unit-subtitle {
+  color: #1a1642;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  margin-right: 60px;
+}
+
+/* Sección Antecedentes (Grid de Logo + Texto) */
+.antecedentes-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.logo-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Subtítulos y Bloques de Texto */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1642;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.text-column p,
+.description-block p,
+.info-block p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #1a1642;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.description-block,
+.info-block {
+  margin-top: 1.8rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #481a4a;
+  color: #ffffff;
+  padding: 1.8rem 3rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-left, 
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-institution,
+.footer-label,
+.footer-names {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 850px) {
+  .antecedentes-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .text-column p,
+  .description-block p,
+  .info-block p {
+    text-align: left;
+  }
+
+  .date-header {
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+
+/* ================= SECCIÓN 3: EMPRESARIO (ANCHO COMPLETO) ================= */
+
+.seccion-empresario-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #8c1d40;
+  color: #ffffff;
+  padding: 4rem 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.empresario-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.empresario-grid {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.empresario-img-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.empresario-photo {
+  width: 100%;
+  max-width: 460px; 
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.empresario-heading {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.empresario-subheading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #ffffff;
+}
+
+.empresario-text-column p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ffffff;
+  font-weight: 400;
+  text-align: justify;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .empresario-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .empresario-text-column p {
+    text-align: left;
+  }
+}
+
+/* ================= SECCIÓN 4: INVESTIGACIÓN (IMAGEN FULL SCREEN) ================= */
+
+.seccion-investigacion-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.img-investigacion-banner {
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .img-investigacion-banner {
+    object-fit: contain;
+    background-color: #ffffff;
+  }
+}
+
+/* ================= SECCIÓN 5: DIAGNÓSTICO Y FODA (ANCHO COMPLETO) ================= */
+
+.seccion-foda-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #121454;
+  color: #ffffff;
+  padding: 4rem 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.foda-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.diagnostico-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.diagnostico-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #ffffff;
+  font-weight: 400;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.foda-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.foda-image {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: -100px;
+}
+
+/* ================= SECCIÓN 6: PROBLEMA COMUNICACIONAL ================= */
+
+.seccion-problema-full {
+  width: 100%;
+  background-color: #ffffff;
+  color: #1a1642;
+  padding: 3rem 2rem 0 2rem; /* Eliminamos el padding inferior para pegar el footer */
+  margin-top: 2rem;
+  margin-bottom: 0;          /* Eliminamos cualquier margen inferior */
+}
+
+.problema-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3rem;
+  align-items: start;        /* Mantiene los elementos alineados arriba para evitar huecos */
+}
+
+.problema-text-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.problema-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1a1642;
+  margin-bottom: 1.2rem;
+}
+
+.problema-subheading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1642;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.problema-text-column p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #1a1642;
+  margin-bottom: 0.6rem;
+  text-align: justify;
+}
+
+.problema-label-inline {
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+  color: #1a1642;
+}
+
+.problema-list {
+  margin-left: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.problema-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #1a1642;
+  margin-bottom: 0.3rem;
+  text-align: justify;
+}
+
+.problema-nota {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #1a1642;
+  margin-bottom: 0.5rem !important;
+}
+
+.solution-list li {
+  font-weight: 500;
+  color: #1a1642;
+}
+
+/* Columna de la imagen vertical de los lentes corregida para no dejar espacio abajo */
+.problema-img-column {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.lluvia-lentes-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  max-height: 750px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Responsivo para tablets y celulares */
+@media (max-width: 900px) {
+  .problema-container {
+    grid-template-columns: 1fr;
+  }
+  .problema-img-column {
+    margin-top: 2rem;
+  }
+}
