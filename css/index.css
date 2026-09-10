@@ -6,6 +6,12 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background-color: #ffffff;
   color: #333;
@@ -19,6 +25,8 @@ body {
   padding: 1.2rem 3rem;
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -132,7 +140,7 @@ body {
 }
 
 .project-title {
-  color: #8c1d40; /* Tono magenta/púrpura del título */
+  color: #8c1d40;
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 1px;
@@ -140,7 +148,7 @@ body {
 }
 
 .brand-subtitle {
-  color: #1a1642; /* Tono azul/púrpura oscuro */
+  color: #1a1642;
   font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: 0.5px;
@@ -155,17 +163,16 @@ body {
 }
 
 .brand-logo {
-  /* --- ESTO ES LO QUE HE CAMBIADO --- */
-  max-width: 300px; /* He subido de 420px a 600px */
-  width: 100%;       /* Asegura que sea responsivo */
-  height: auto;      /* Mantiene la proporción */
+  max-width: 300px;
+  width: 100%;
+  height: auto;
   object-fit: contain;
-  margin: 0 auto;    /* Asegura el centrado */
+  margin: 0 auto;
 }
 
 /* Footer (Estilo del prototipo) */
 .footer {
-  background-color: #481a4a; /* Púrpura oscuro exacto del footer */
+  background-color: #481a4a;
   color: #ffffff;
   padding: 1.8rem 3rem;
   width: 100%;
@@ -210,6 +217,11 @@ body {
   .navbar {
     flex-direction: column;
     gap: 1rem;
+    padding: 1.2rem 1rem;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
   }
 
   .footer-container {
