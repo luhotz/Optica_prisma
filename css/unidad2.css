@@ -184,7 +184,7 @@ body {
 }
 
 .footer-institution,
-.footer-label,
+.footer-labelone
 .footer-names {
   font-size: 0.85rem;
   font-weight: 700;
@@ -383,7 +383,7 @@ body {
 .card-list li {
   font-size: 0.82rem;
   line-height: 1.5;
-  color: #222222;
+  color: #9f135c;
   font-weight: 700;
   text-align: left;
   text-transform: uppercase;
