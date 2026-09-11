@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'seccionesUnidad2/seccion6_post_informativo.html',
     'seccionesUnidad2/seccion7_post_promocional.html',
     'seccionesUnidad2/seccion8_presupuesto.html',
-    'seccionesUnidad2/seccion9_anexo.html'
+    'seccionesUnidad2/seccion9_anexo.html',
+    'seccionesUnidad2/seccion10_reunion.html'
 
     // Cuando tengas la siguiente sección, solo agrégala aquí abajo:
     // 'seccionesUnidad2/seccion2_nombre.html'
