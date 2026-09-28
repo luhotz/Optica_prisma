@@ -15,7 +15,11 @@ body {
 }
 
 /* Header & Navegación */
+/* ================= NAVBAR ================= */
+
 .navbar {
+  position: relative;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,12 +33,13 @@ body {
   font-size: 1.2rem;
   color: #4a154b;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
 .nav-links a {
@@ -44,21 +49,55 @@ body {
   color: #4a154b;
   letter-spacing: 0.5px;
   transition: all 0.2s ease;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 
-/* Estilo Cápsula para el botón activo (UNIDAD 1) */
 .nav-links a.active {
   background-color: #481a4a;
   color: #ffffff;
-  border-radius: 8px;
-  padding: 0.4rem 1.2rem;
 }
 
 .nav-links a:hover:not(.active) {
-  opacity: 0.7;
+  background-color: #f3eaf4;
+  opacity: 1;
 }
 
+/* Botón hamburguesa (oculto en escritorio) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 0 auto;
+  background-color: #4a154b;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* Animación del icono cuando el menú está abierto */
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 /* Contenedor Principal */
 .container {
   max-width: 1100px;
@@ -178,31 +217,6 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Ajustes Responsivos */
-@media (max-width: 850px) {
-  .antecedentes-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .text-column p,
-  .description-block p,
-  .info-block p {
-    text-align: left;
-  }
-
-  .date-header {
-    text-align: center;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-}
-
-
 /* ================= SECCIÓN 3: EMPRESARIO (ANCHO COMPLETO) ================= */
 
 .seccion-empresario-full {
@@ -271,17 +285,6 @@ body {
   margin-bottom: 0.8rem;
 }
 
-@media (max-width: 900px) {
-  .empresario-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .empresario-text-column p {
-    text-align: left;
-  }
-}
-
 /* ================= SECCIÓN 4: INVESTIGACIÓN (IMAGEN FULL SCREEN) ================= */
 
 .seccion-investigacion-full {
@@ -304,13 +307,6 @@ body {
   max-height: 800px;
   object-fit: cover;
   display: block;
-}
-
-@media (max-width: 768px) {
-  .img-investigacion-banner {
-    object-fit: contain;
-    background-color: #ffffff;
-  }
 }
 
 /* ================= SECCIÓN 5: DIAGNÓSTICO Y FODA (ANCHO COMPLETO) ================= */
@@ -376,9 +372,9 @@ body {
   width: 100%;
   background-color: #ffffff;
   color: #1a1642;
-  padding: 3rem 2rem 0 2rem; /* Eliminamos el padding inferior para pegar el footer */
+  padding: 3rem 2rem 0 2rem;
   margin-top: 2rem;
-  margin-bottom: 0;          /* Eliminamos cualquier margen inferior */
+  margin-bottom: 0;
 }
 
 .problema-container {
@@ -387,7 +383,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 3rem;
-  align-items: start;        /* Mantiene los elementos alineados arriba para evitar huecos */
+  align-items: start;
 }
 
 .problema-text-column {
@@ -450,7 +446,6 @@ body {
   color: #1a1642;
 }
 
-/* Columna de la imagen vertical de los lentes corregida para no dejar espacio abajo */
 .problema-img-column {
   display: flex;
   justify-content: center;
@@ -466,12 +461,227 @@ body {
   border-radius: 12px;
 }
 
-/* Responsivo para tablets y celulares */
+/* ================= RESPONSIVE COMPLETO ================= */
+
+/* Pantallas grandes y tablets horizontales */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .nav-links {
+    gap: 1.2rem;
+  }
+  .container {
+    width: 92%;
+  }
+  .antecedentes-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .empresario-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .problema-container {
+    grid-template-columns: 1fr 380px;
+  }
+}
+
+/* Tablets verticales y móviles grandes */
 @media (max-width: 900px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: max-height 0.35s ease, padding 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+    padding: 0.6rem 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0;
+    font-size: 0.95rem;
+  }
+
+  .nav-links a.active {
+    width: auto;
+    margin: 0.3rem 1.2rem;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+  }
+
+  .nav-links a:hover:not(.active) {
+    background-color: #f3eaf4;
+  }
+
+  .empresario-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .empresario-text-column p {
+    text-align: left;
+  }
   .problema-container {
     grid-template-columns: 1fr;
   }
   .problema-img-column {
     margin-top: 2rem;
+  }
+  .foda-image {
+    margin-top: 0;
+  }
+}
+
+/* Móviles estándar */
+@media (max-width: 850px) {
+  .antecedentes-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .text-column p,
+  .description-block p,
+  .info-block p {
+    text-align: left;
+  }
+  .date-header {
+    text-align: center;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .footer {
+    padding: 1.5rem 2rem;
+  }
+  .unit-subtitle {
+    margin-right: 0;
+  }
+  .main-title {
+    font-size: 1.6rem;
+  }
+  .section-heading {
+    font-size: 1.3rem;
+  }
+  .text-column p,
+  .description-block p,
+  .info-block p {
+    font-size: 1rem;
+  }
+  .seccion-empresario-full,
+  .seccion-foda-full {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 768px) {
+  .img-investigacion-banner {
+    object-fit: contain;
+    background-color: #ffffff;
+  }
+  .empresario-photo {
+    height: auto;
+    max-height: 350px;
+  }
+  .foda-image {
+    max-width: 100%;
+    padding: 0;
+  }
+  .problema-heading {
+    font-size: 1rem;
+  }
+  .problema-subheading {
+    font-size: 0.95rem;
+  }
+  .problema-text-column p,
+  .problema-list li {
+    font-size: 0.85rem;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.8rem;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .nav-links a.active {
+    padding: 0.2rem 0.8rem;
+  }
+  .main-title {
+    font-size: 1.4rem;
+  }
+  .unit-subtitle {
+    font-size: 1rem;
+  }
+  .footer {
+    padding: 1rem 1.2rem;
+  }
+  .footer-institution,
+  .footer-label,
+  .footer-names {
+    font-size: 0.75rem;
+  }
+  .seccion-empresario-full,
+  .seccion-foda-full {
+    padding: 2rem 1rem;
+  }
+  .empresario-heading {
+    font-size: 1rem;
+  }
+  .empresario-text-column p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .date-header {
+    font-size: 0.8rem;
+  }
+  .problema-list {
+    margin-left: 1rem;
+  }
+  .lluvia-lentes-img {
+    max-width: 100%;
   }
 }

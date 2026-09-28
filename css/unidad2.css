@@ -14,8 +14,11 @@ body {
   min-height: 100vh;
 }
 
-/* Header & Navegación */
+/* ================= NAVBAR ================= */
+
 .navbar {
+  position: relative;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,12 +32,13 @@ body {
   font-size: 1.2rem;
   color: #4a154b;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
 .nav-links a {
@@ -44,19 +48,53 @@ body {
   color: #4a154b;
   letter-spacing: 0.5px;
   transition: all 0.2s ease;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 
-/* Estilo Cápsula para el botón activo (UNIDAD 2) */
 .nav-links a.active {
   background-color: #481a4a;
   color: #ffffff;
-  border-radius: 8px;
-  padding: 0.4rem 1.2rem;
 }
 
 .nav-links a:hover:not(.active) {
-  opacity: 0.7;
+  background-color: #f3eaf4;
+  opacity: 1;
+}
+
+/* Botón hamburguesa (oculto en escritorio) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 0 auto;
+  background-color: #4a154b;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Contenedor Principal */
@@ -121,12 +159,12 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Espacio vertical limpio entre cada cápsula */
+  gap: 1.5rem;
 }
 
 .aspecto-capsula {
   padding: 1.2rem 2rem;
-  border-radius: 50px; /* Forma de píldora/cápsula idéntica a la captura */
+  border-radius: 50px;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -138,28 +176,28 @@ body {
   text-align: justify;
 }
 
-/* Tonos específicos para cada una de las 5 cápsulas según tu diseño */
 .capsula-vino {
-  background-color: #9f135c; /* Tono vino/frambuesa oscuro */
+  background-color: #9f135c;
 }
 
 .capsula-fucsia {
-  background-color: #531d63; /* Tono intermedio vino rojizo */
+  background-color: #531d63;
 }
 
 .capsula-azul {
-  background-color: #2d2680; /* Azul marino profundo */
+  background-color: #2d2680;
 }
 
 .capsula-lila {
-  background-color: #b57dcf; /* Lila claro brillante */
+  background-color: #b57dcf;
 }
 
 .capsula-moradoclaro {
-  background-color: #baaabb; /* Morado grisáceo intermedio */
+  background-color: #baaabb;
 }
 
-/* Footer Global */
+/* ================= FOOTER ================= */
+
 .footer {
   background-color: #481a4a;
   color: #ffffff;
@@ -174,9 +212,10 @@ body {
   align-items: flex-end;
   max-width: 1400px;
   margin: 0 auto;
+  gap: 2rem;
 }
 
-.footer-left, 
+.footer-left,
 .footer-right {
   display: flex;
   flex-direction: column;
@@ -184,28 +223,15 @@ body {
 }
 
 .footer-institution,
-.footer-labelone
+.footer-label,
+.footer-labelone,
 .footer-names {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.3px;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 850px) {
-  .aspecto-capsula {
-    border-radius: 20px; /* En pantallas pequeñas se adaptan mejor con esquinas ligeramente redondeadas */
-    padding: 1rem 1.2rem;
-  }
-  
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-}
-
-/* ================= SECCIÓN 2: PROPUESTA DE VALOR (ANCHO COMPLETO) ================= */
+/* ================= SECCIÓN 2: PROPUESTA DE VALOR ================= */
 
 .seccion-propuesta-full {
   width: 100vw;
@@ -214,19 +240,46 @@ body {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background-color: #531d63; /* Fondo morado institucional idéntico al de tu captura */
+  background-color: #531d63;
   color: #ffffff;
   padding: 4rem 2rem;
   margin-top: 3rem;
-  
 }
 
 .propuesta-container {
   max-width: 1100px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.propuesta-heading {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.propuesta-quote-container {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding: 0 1rem;
+}
+
+.propuesta-quote {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.propuesta-content-grid {
   display: grid;
-  grid-template-columns: 1fr 420px; /* Texto a la izquierda, imagen a la derecha */
-  gap: 3rem;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -235,79 +288,50 @@ body {
   flex-direction: column;
 }
 
-.propuesta-heading {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 1.2rem;
-  letter-spacing: 0.5px;
-}
-
 .propuesta-intro {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #ffffff;
-  text-align: justify;
-  margin-bottom: 1rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
 }
 
 .propuesta-sublabel {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #ffffff;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .propuesta-list {
   margin-left: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.6rem;
 }
 
 .propuesta-list li {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   line-height: 1.5;
   color: #f0f0f0;
-  text-align: justify;
+  text-align: left;
 }
 
-/* Columna de la imagen */
 .propuesta-img-column {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   width: 100%;
 }
 
 .propuesta-photo {
   width: 100%;
   max-width: 380px;
-  height: 420px;
+  height: auto;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;
 }
 
-/* Responsivo para tablets y celulares */
-@media (max-width: 900px) {
-  .propuesta-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
-  .propuesta-text-column p,
-  .propuesta-list li {
-    text-align: left;
-  }
-  
-  .propuesta-img-column {
-    margin-top: 1rem;
-  }
-}
-
-/* ================= SECCIÓN 3: OBJETIVOS DE MARKETING Y PUBLICITARIOS ================= */
+/* ================= SECCIÓN 3: OBJETIVOS ================= */
 
 .seccion-objetivos-full {
   width: 100vw;
@@ -316,10 +340,10 @@ body {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background-color: #9f135c; /* Mantiene exactamente el mismo tono vino/fucsia de la sección previa para evitar cortes */
+  background-color: #9f135c;
   color: #ffffff;
   padding: 2rem 2rem 4rem 2rem;
-  margin-top: 0 !important; /* Cero separación superior para que vaya totalmente pegado */
+  margin-top: 0 !important;
 }
 
 .objetivos-container-main {
@@ -339,7 +363,7 @@ body {
 
 .objetivos-cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos tarjetas simétricas */
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: stretch;
 }
@@ -389,14 +413,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Responsivo para tablets y celulares */
-@media (max-width: 850px) {
-  .objetivos-cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ================= SECCIÓN 4: JUSTIFICACIÓN Y TABLAS DE ESTRATEGIAS ================= */
+/* ================= SECCIÓN 4: JUSTIFICACIÓN Y TABLAS ================= */
 
 .seccion-justificacion-full {
   width: 100vw;
@@ -405,7 +422,7 @@ body {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background-color: #121454; /* Fondo azul marino corporativo */
+  background-color: #121454;
   color: #ffffff;
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -442,7 +459,6 @@ body {
   max-width: 750px;
 }
 
-/* Contenedores individuales de filas */
 .estrategia-row-container {
   width: 100%;
   padding: 0 2rem;
@@ -454,10 +470,9 @@ body {
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 2.5rem;
-  align-items: center; /* Alinea los elementos al inicio (arriba) */
+  align-items: center;
 }
 
-/* Franja de separación blanca de 3rem que abarca todo el ancho de la pantalla */
 .separador-blanco-full {
   width: 100vw;
   height: 3rem;
@@ -471,14 +486,12 @@ body {
   margin-bottom: 4rem;
 }
 
-/* Columna Izquierda (Título y Párrafo) */
 .estrategia-info-box {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Separación entre el cuadro blanco y el texto */
+  gap: 1.5rem;
 }
 
-/* Título con fondo blanco y bordes redondeados */
 .estrategia-title-box {
   background-color: #ffffff;
   color: #121453;
@@ -492,24 +505,23 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Texto descriptivo fuera del fondo blanco (texto blanco sobre azul) */
 .estrategia-desc-box {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #ffffff;
   text-align: left;
   margin: 0;
-  padding: 0 0.5rem; /* Ligero padding lateral para alinear bien con la burbuja */
+  padding: 0 0.5rem;
 }
 
 .estrategia-desc-box strong {
-  color: #ffffff; /* Asegura que la negrita siga siendo blanca */
+  color: #ffffff;
 }
 
-/* Tablas Estilizadas dentro del fondo azul */
 .estrategia-table-box {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .custom-estrategia-table {
@@ -519,7 +531,7 @@ body {
   color: #ffffff;
 }
 
-.custom-estrategia-table th, 
+.custom-estrategia-table th,
 .custom-estrategia-table td {
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.9rem 1.1rem;
@@ -529,9 +541,9 @@ body {
 }
 
 .custom-estrategia-table th {
-  background-color: transparent; /* Se remueve el fondo para que quede como en la imagen */
+  background-color: transparent;
   font-weight: 800;
-  text-transform: none; /* Quitamos mayúsculas para igualar la captura */
+  text-transform: none;
   text-align: center;
   font-size: 1rem;
 }
@@ -541,17 +553,7 @@ body {
   width: 30%;
 }
 
-/* Responsivo para móviles y tablets */
-@media (max-width: 950px) {
-  .estrategia-row {
-    grid-template-columns: 1fr; /* Pasa a una sola columna */
-  }
-  .justificacion-heading {
-    font-size: 1.3rem;
-  }
-}
-
-/* ================= SECCIÓN 5: IMAGEN DE PANTALLA COMPLETA ================= */
+/* ================= SECCIÓN 5: IMAGEN FULL SCREEN ================= */
 
 .seccion-imagen-full {
   width: 100vw;
@@ -560,10 +562,10 @@ body {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: 3rem;       /* Separación superior respecto a la sección anterior */
+  margin-top: 3rem;
   margin-bottom: 0;
   padding: 0;
-  line-height: 0;         /* Elimina espacios fantasma debajo de la imagen */
+  line-height: 0;
 }
 
 .imagen-pantalla-completa {
@@ -573,7 +575,7 @@ body {
   object-fit: cover;
 }
 
-/* ================= SECCIÓN 8: PRESUPUESTO (TABLA MEJORADA) ================= */
+/* ================= SECCIÓN 8: PRESUPUESTO ================= */
 
 .seccion-presupuesto {
   width: 100%;
@@ -607,10 +609,10 @@ body {
   max-width: 850px;
 }
 
-/* Tabla Estilizada y con más aire */
 .presupuesto-table-wrapper {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .custom-presupuesto-table {
@@ -620,18 +622,16 @@ body {
   border: 1px solid #7c5c9e;
 }
 
-/* Mayor padding vertical y horizontal para evitar efecto aplastado */
-.custom-presupuesto-table th, 
+.custom-presupuesto-table th,
 .custom-presupuesto-table td {
   border: 1px solid #7c5c9e;
-  padding: 1.2rem 1.5rem; /* <-- Aumentado para darle espacio y respiro a las celdas */
+  padding: 1.2rem 1.5rem;
   font-size: 0.95rem;
-  text-align: center !important; /* <-- Forzado para centrar absolutamente todo */
+  text-align: center !important;
   color: #2c2240;
   vertical-align: middle;
 }
 
-/* Cabecera de la tabla */
 .table-main-title {
   background-color: #ffffff;
   color: #3b1d5c;
@@ -647,7 +647,6 @@ body {
   font-weight: 700;
 }
 
-/* Celdas del cuerpo */
 .medio-cell {
   font-weight: 700;
   color: #3b1d5c;
@@ -656,9 +655,8 @@ body {
   text-align: center !important;
 }
 
-/* Fila de Totales */
 .footer-label {
-  text-align: center !important; /* <-- Centrado también el texto de total estimado */
+  text-align: center !important;
   font-weight: 700;
   color: #3b1d5c;
 }
@@ -670,31 +668,21 @@ body {
   text-align: center !important;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-  .custom-presupuesto-table th, 
-  .custom-presupuesto-table td {
-    padding: 0.8rem 1rem;
-    font-size: 0.85rem;
-  }
-}
-
-/* ================= CALENDARIO DENTRO DE SECCIÓN 8 ================= */
+/* ================= CALENDARIO ================= */
 
 .calendario-presupuesto-wrapper {
   width: 100%;
-  margin-top: 3.5rem; /* Separación respecto a la tabla de arriba */
+  margin-top: 3.5rem;
   display: flex;
   justify-content: center;
 }
 
 .calendario-presupuesto-img {
   width: 100%;
-  max-width: 900px; /* Controla el ancho máximo para que no se vea gigante */
+  max-width: 900px;
   height: auto;
   display: block;
   border-radius: 8px;
- 
 }
 
 .seccion-imagen-full_anexo {
@@ -704,14 +692,253 @@ body {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: 0;       /* Separación superior respecto a la sección anterior */
+  margin-top: 0;
   padding: 0;
-  line-height: 0;         /* Elimina espacios fantasma debajo de la imagen */
+  line-height: 0;
 }
 
-.imagen-pantalla-completa {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+/* ================= RESPONSIVE COMPLETO ================= */
+
+/* Tablets horizontales y pantallas medianas */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .container {
+    width: 92%;
+  }
+  .propuesta-content-grid {
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+  }
+  .estrategia-row {
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Tablets verticales y móviles grandes (menú hamburguesa) */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: max-height 0.35s ease, padding 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+    padding: 0.6rem 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0;
+    font-size: 0.95rem;
+  }
+
+  .nav-links a.active {
+    width: auto;
+    margin: 0.3rem 1.2rem;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+  }
+
+  .nav-links a:hover:not(.active) {
+    background-color: #f3eaf4;
+  }
+
+  .propuesta-content-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .propuesta-text-column p,
+  .propuesta-list li {
+    text-align: left;
+  }
+  .propuesta-img-column {
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .propuesta-quote {
+    font-size: 1.8rem;
+  }
+  .seccion-propuesta-full {
+    padding: 3rem 1.5rem;
+  }
+  .estrategia-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .estrategia-info-box,
+  .estrategia-desc-box {
+    text-align: left;
+  }
+  .estrategia-table-box {
+    margin-top: 2rem;
+  }
+  .justificacion-heading {
+    font-size: 1.3rem;
+  }
+}
+
+/* Móviles estándar */
+@media (max-width: 850px) {
+  .objetivos-cards-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .objetivo-card p,
+  .objetivo-card li {
+    text-align: left;
+  }
+  .aspecto-capsula {
+    border-radius: 20px;
+    padding: 1rem 1.2rem;
+  }
+  .description-block p,
+  .info-block p {
+    text-align: left;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .footer {
+    padding: 1.5rem 2rem;
+  }
+  .main-title {
+    font-size: 1.5rem;
+  }
+  .section-heading {
+    font-size: 1.05rem;
+  }
+  .description-block p,
+  .info-block p,
+  .strong-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 768px) {
+  .imagen-pantalla-completa,
+  .calendario-presupuesto-img {
+    object-fit: contain;
+    background-color: #ffffff;
+  }
+  .custom-presupuesto-table th,
+  .custom-presupuesto-table td {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+  }
+  .propuesta-heading {
+    font-size: 1rem;
+  }
+  .propuesta-quote {
+    font-size: 1.5rem;
+  }
+  .justificacion-heading {
+    font-size: 1.2rem;
+  }
+  .justificacion-text {
+    font-size: 0.95rem;
+  }
+  .estrategia-title-box {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+  }
+  .custom-estrategia-table th,
+  .custom-estrategia-table td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+  .nav-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-toggle span {
+    width: 24px;
+  }
+  .main-title {
+    font-size: 1.3rem;
+  }
+  .footer {
+    padding: 1.2rem 1.2rem;
+  }
+  .footer-institution,
+  .footer-label,
+  .footer-labelone,
+  .footer-names {
+    font-size: 0.75rem;
+  }
+  .objetivo-card {
+    padding: 1.5rem 1rem;
+  }
+  .card-title {
+    font-size: 0.95rem;
+  }
+  .card-text,
+  .card-list li {
+    font-size: 0.78rem;
+  }
+  .presupuesto-heading {
+    font-size: 1.4rem;
+  }
+  .presupuesto-text {
+    font-size: 0.9rem;
+  }
+  .seccion-presupuesto {
+    padding: 3rem 1rem;
+  }
+}
+
+/* Móviles extra pequeños */
+@media (max-width: 480px) {
+  .propuesta-list {
+    margin-left: 1rem;
+  }
+  .custom-estrategia-table td:first-child {
+    width: 40%;
+  }
+  .aspecto-capsula p {
+    font-size: 0.8rem;
+  }
+  .justificacion-container {
+    padding: 0 1rem;
+  }
+  .estrategia-row-container {
+    padding: 0 1rem;
+  }
 }
