@@ -3,106 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unidad 3 - Próximamente</title>
-  <style>
-    :root {
-      --bg-color: #0d1117;
-      --text-color: #c9d1d9;
-      --accent-color: #58a6ff;
-      --border-color: #30363d;
-      --box-bg: #161b22;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-
-    .not-found-container {
-      text-align: center;
-      padding: 2.5rem;
-      max-width: 550px;
-      background-color: var(--box-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      margin: 1rem;
-    }
-
-    .github-octocat {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      color: #ffffff;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-
-    p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #8b949e;
-      margin-bottom: 2rem;
-    }
-
-    .code-badge {
-      display: inline-block;
-      background-color: rgba(88, 166, 255, 0.1);
-      color: var(--accent-color);
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
-      font-size: 0.85rem;
-      border: 1px solid rgba(88, 166, 255, 0.2);
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-back {
-      display: inline-block;
-      background-color: #21262d;
-      color: #c9d1d9;
-      border: 1px solid var(--border-color);
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background-color 0.2s, border-color 0.2s;
-    }
-
-    .btn-back:hover {
-      background-color: #30363d;
-      border-color: #8b949e;
-      color: #ffffff;
-    }
-  </style>
+  <title>Unidad 3 - Proyecto de Cátedra</title>
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS específico de la Unidad 3 -->
+  <link rel="stylesheet" href="css/unidad3.css">
 </head>
 <body>
 
-  <div class="not-found-container">
-    <div class="github-octocat">😸</div>
-    <div class="code-badge">PRONTOOOO</div>
-    <h1>Hasta la proxima entrega</h1>
-    <p>Este apartado estara funcionando dentro de poco :D </p>
-    <a href="javascript:history.back()" class="btn-back">Regresar al inicio</a>
-  </div>
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="navbar">
+    <div class="logo">ÓPTICA PRISMA</div>
+<button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Inicio</a>
+    <a href="unidad1.html">Unidad 1</a>
+    <a href="unidad2.html">Unidad 2</a>
+    <a href="unidad3.html" class="active">Unidad 3</a>
+  </nav>
+  </header>
+
+  <!-- ==================== SECCIÓN DE PRESENTACIÓN / TÍTULO Y LOGO ==================== -->
+  <main class="main-content">
+    <section class="project-info">
+      <h1 class="project-title">TERCERA EVALUACIÓN DEL PROYECTO DE CÁTEDRA</h1>
+      <h2 class="brand-subtitle">MARCA:</h2>
+      <div class="brand-logo-container">
+        <img src="img/logo_opticaprisma.jpeg" alt="Logo Grupo Óptica Prisma" class="brand-logo">
+      </div>
+    </section>
+
+    <!-- ==================== CONTENEDOR DINÁMICO DE SECCIONES (UNIDAD 3) ==================== -->
+    <div id="contenido-unidad3">
+      <!-- Aquí se cargarán automáticamente las secciones de la Unidad 3 mediante fetch -->
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <p class="footer-institution">UNIVERSIDAD DON BOSCO, FACULTAD DE HUMANIDADES</p>
+        <br>
+        <p class="footer-names">ANDREA CRUZ - CINDY PINEDA - YARA LINARES - JUDITH GARCÍA</p>
+      </div>
+      <div class="footer-right">
+        <p class="footer-labelone">FACILITADOR</p>
+        <br>
+        <p class="footer-names">RODOLFO ALIRIO CORNEJO FAJARDO</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script modular para cargar las secciones de la Unidad 3 -->
+  <script src="js/loaderUnidad3.js"></script>
+   <script src="js/navbar.js"></script>
+   
 </body>
 </html>
